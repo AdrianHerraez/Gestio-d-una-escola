@@ -114,12 +114,20 @@ width: 370px;
 
     <div>
         <h1>Asignaturas - Profesor</h1>
-        <ul class="orden">
-            <li>clase</li>
-            <li>clase</li>
-            <li>clase</li>
-            <li>clase</li>
-        </ul>
+        <ul class="list-group">
+        <?php
+        $query = $mysqli->prepare('SELECT * FROM nota WHERE MatriculaAluNota = ?');
+        $query->bind_param('i', $_GET["id"]);
+        $query->execute();
+        $result = $query->get_result();
+        ?>
+
+        <?php while ($row = $result->fetch_assoc()) : ?>
+            <li class="list-group-item"><strong><?php echo "Asignatura: " . $row['DescripcioNota']; ?></strong></li>
+            <li class="list-group-item"><?php echo "Nota: " . $row['NumNota']; ?></li>
+        <?php endwhile; ?>
+
+    </ul>
     </div>
 </div>
 </body>

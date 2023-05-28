@@ -20,11 +20,16 @@
         bottom:0;
         width:100%
     }
+    .form-control {
+        width:50vh
+    }
 @media only screen and (max-width: 900px) {
   body {
     zoom: 45%;
   }
-
+  .form-control {
+        width:40vh
+    }
 }
 </style>
     <tbody>
@@ -40,7 +45,7 @@
         if ($educador->num_rows > 0) {
         while($row = $educador->fetch_array()) {
             $fila="<tr>";
-            $fila=$fila."<td>" . $row["IdEdu"] . "</td>";
+            $fila=$fila."<td><a style='color:orange; text-decoration:none' href='./educador/personalEdu.php?id=" . $row["IdEdu"] . "'>" . $row["IdEdu"] . "</td></a>";
             $fila=$fila."<td>" . $row["NomEdu"] . "</td>";
             $fila=$fila."<td>" . $row["CognomsEdu"] . "</td>";
             $fila=$fila."<td>" . $row["MailEdu"] . "</td>";

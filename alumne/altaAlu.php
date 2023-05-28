@@ -1,6 +1,5 @@
 <?php
 include_once "../conexion.php";
-include_once "../header.php";
 $nombre = $_POST['Nombre'];
 $apellido = $_POST['Apellido'];
 $email = $_POST['Email'];

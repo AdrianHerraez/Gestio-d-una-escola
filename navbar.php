@@ -49,7 +49,7 @@
                         </ul>
                     </li>
                 </ul>
-                <input class="form-control me-2" type="search" placeholder="Bromota..." aria-label="Search" style="width:50vw;" name="bromota" value="<?php echo isset($_POST['bromota']) ? $_POST['bromota'] : ''; ?>"> <!-- Changed name to "bromota" and value to $_POST['bromota'] -->
+                <input class="form-control me-2" type="search" placeholder="Bromota..." aria-label="Search" name="bromota" value="<?php echo isset($_POST['bromota']) ? $_POST['bromota'] : ''; ?>"> <!-- Changed name to "bromota" and value to $_POST['bromota'] -->
                 <!-- Incluir todos los parámetros pasados anteriormente por GET como campos ocultos -->
                 <?php
                 foreach ($_GET as $key => $value) {

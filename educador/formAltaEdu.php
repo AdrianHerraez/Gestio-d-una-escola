@@ -17,8 +17,7 @@
     </style>
 </head>
 <?php
-include 'conexion.php';
-include 'header.php';
+include '../conexion.php';
 ?>
 <body style="width: 100%;" class="bg-dark wii">
     <div class="container">
@@ -29,7 +28,7 @@ include 'header.php';
                 </div>
                 <div class="px-4 py-3 w-100">
                     <h1 class="font-weight-bold mb-4 text-center">Crear una cuenta - Educador</h1>
-                    <form class="mb-4" method="POST" action="regp.php">
+                    <form class="mb-4" method="POST" action="altaEdu.php">
                         <div class="mb-3">
                             <label for="exampleInputName" class="form-label font-weight-bold">Nombre</label>
                             <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="Ingresa tu Nombre" aria-describedby="nameHelp" name="Nombre" required>
@@ -75,7 +74,7 @@ include 'header.php';
                     </form>
                 </div>
                 <div class="text-center px-4 py-3 w-100">
-                    <p class="mb-0">Â¿Ya tienes una cuenta?</p> <a href="/index.php" class="text-light font-weight-bold text-decoration-none">Inicia sesiÃ³n</a>
+                    <p class="mb-0">Â¿Ya tienes una cuenta?</p> <a href="../index.php" class="text-light font-weight-bold text-decoration-none">Inicia sesiÃ³n</a>
                 </div>
             </div>
         </div>

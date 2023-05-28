@@ -1,5 +1,6 @@
 <?php
-include_once "conexion.php";
+include_once "../conexion.php";
+$MatriculaAlu = $_POST['Matricula'];
 $nombre = $_POST['Nombre'];
 $apellido = $_POST['Apellido'];
 $email = $_POST['Email'];
@@ -13,9 +14,8 @@ $nomTutor2 = $_POST['Nomtutor2'];
 $genero = $_POST['Genero'];
 
 
-$query=$mysqli->prepare('UPDATE alumne SET NomAlu,CognomsAlu,MailAlu,TelfAlu,PwdAlu,DireccioAlu,CPAlu,NomTutor1Alu,NomTutor2Alu,GenereAlu WHERE MatriculaAlu=?');
-$query->bind_param('ssssssssss',$nombre,$apellido,$email,$telf,$password,$direccio,$cp,$nomTutor1,$nomTutor2,$genero);
+$query=$mysqli->prepare('UPDATE alumne SET NomAlu=?, CognomsAlu=?, MailAlu=?, TelfAlu=?, PwdAlu=?, DireccioAlu=?, CPAlu=?, NomTutor1Alu=?, NomTutor2Alu=?, GenereAlu=? WHERE MatriculaAlu=?');
+$query->bind_param('ssssssssssi', $nombre, $apellido, $email, $telfAlu, $password, $direccion, $cp, $nomTutor1, $nomTutor2, $genero, $MatriculaAlu);
 $query->execute();
-header('Location: professor.php');
-
+header('Location: ../index.php');
 ?>

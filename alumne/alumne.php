@@ -19,11 +19,17 @@
         bottom:0;
         width:100%
     }
+    .form-control {
+        width:50vh
+    }
 @media only screen and (max-width: 900px) {
   body {
     zoom: 55%;
   }
+  .form-control {
+    width:40vh;
 
+  }
 }
 </style>
     <tbody>

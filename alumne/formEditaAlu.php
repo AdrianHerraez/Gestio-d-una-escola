@@ -11,14 +11,14 @@
     <title>Editar un usuario - Alumno | SchoolTracker +</title>
 </head>
 <?php
-                    include_once "conexion.php";
-                    $MatriculaAlu = $_GET['MatriculaAlu'];
-                    $query = $mysqli->prepare('SELECT * FROM alumne WHERE MatriculaAlu=?');
-                    $query->bind_param('i', $MatriculaAlu);
-                    $query->execute();
-                    $res = $query->get_result();
-                    $mascota = $res->fetch_assoc();
-                    ?>
+include_once "../conexion.php";
+$MatriculaAlu = $_GET['id'];
+$query = $mysqli->prepare('SELECT * FROM alumne WHERE MatriculaAlu=?');
+$query->bind_param('i', $MatriculaAlu);
+$query->execute();
+$res = $query->get_result();
+$alumne = $res->fetch_assoc();
+?>
 <body style="width: 100%;" class="bg-dark wii">
     <div class="container">
         <div class="row justify-content-center">
@@ -31,46 +31,52 @@
                     <form class="mb-4" method="POST" action="editaAlu.php">
                         <div class="mb-3">
                             <label for="exampleInputContractDate" class="form-label font-weight-bold">Matrícula</label>
-                            <input type="text" class="form-control bg-dark-x border-0" value="<?php echo $MatriculaAlu ?>" readonly>
+                            <input type="text" class="form-control bg-dark-x border-0" value="<?php echo $alumne['MatriculaAlu']?>" name="Matricula" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputName" class="form-label font-weight-bold">Nombre</label>
-                            <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="Ingresa tu Nombre" aria-describedby="nameHelp" name="Nombre" required>
+                            <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="<?php echo $alumne['NomAlu']?>" value="<?php echo $alumne['NomAlu']?>" aria-describedby="nameHelp" name="Nombre" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputName" class="form-label font-weight-bold">Apellido</label>
-                            <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="Ingresa tu Apellido" aria-describedby="nameHelp" name="Apellido" required>
+                            <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="<?php echo $alumne['CognomsAlu']?>" value="<?php echo $alumne['CognomsAlu']?>" aria-describedby="nameHelp" name="Apellido" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail" class="form-label font-weight-bold">Email</label>
-                            <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail" placeholder="Ingresa tu email" aria-describedby="emailHelp" name="Email" required>
+                            <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail" placeholder="<?php echo $alumne['MailAlu']?>" value="<?php echo $alumne['MailAlu']?>" aria-describedby="emailHelp" name="Email" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword" class="form-label font-weight-bold">Contraseña</label>
-                            <input type="password" class="form-control bg-dark-x border-0" placeholder="Ingresa tu contraseña" id="exampleInputPassword" name="Password" required>
+                            <input type="password" class="form-control bg-dark-x border-0" placeholder="" value="<?php echo $alumne['PwdAlu']?>" id="exampleInputPassword" name="Password" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPhone" class="form-label font-weight-bold">Teléfono</label>
-                            <input type="tel" class="form-control bg-dark-x border-0" placeholder="Ingresa tu teléfono" id="exampleInputPhone" name="TelfAlu" required>
+                            <input type="tel" class="form-control bg-dark-x border-0" placeholder="<?php echo $alumne['TelfAlu']?>" value="<?php echo $alumne['TelfAlu']?>" id="exampleInputPhone" name="TelfAlu" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPermissions" class="form-label font-weight-bold">Dirección</label>
-                            <input type="number" class="form-control bg-dark-x border-0" placeholder="Ingresa los permisos" id="CP" name="CPAlu" required>
+                            <input type="text" class="form-control bg-dark-x border-0" placeholder="<?php echo $alumne['DireccioAlu']?>" value="<?php echo $alumne['DireccioAlu']?>" id="CP" name="CPAlu" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputDepartment" class="form-label font-weight-bold">Nom tutor 1</label>
-                            <input type="number" class="form-control bg-dark-x border-0" placeholder="Ingresa el ID de departamento" id="exampleInputDepartment" name="Nomtutor1" required>
+                            <input type="text" class="form-control bg-dark-x border-0" placeholder="<?php echo $alumne['NomTutor1Alu']?>" value="<?php echo $alumne['NomTutor1Alu']?>" id="exampleInputDepartment" name="Nomtutor1" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputDepartment" class="form-label font-weight-bold">Nom Tutor 2</label>
-                            <input type="number" class="form-control bg-dark-x border-0" placeholder="Ingresa el ID de departamento" id="exampleInputDepartment" name="Nomtutor2" required>
+                            <input type="text" class="form-control bg-dark-x border-0" placeholder="<?php echo $alumne['NomTutor2Alu']?>" value="<?php echo $alumne['NomTutor2Alu']?>" id="exampleInputDepartment" name="Nomtutor2" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputDepartment" class="form-label font-weight-bold">Género</label>
-                            <input type="number" class="form-control bg-dark-x border-0" placeholder="Ingresa el ID de departamento" id="exampleInputDepartment" name="Genero" required>
+                            <div class="mb-3">
+                        <select class="form-control bg-dark-x border-0" id="exampleInputGender" name="Genero" required>
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
                         </div>
+                        <div>
                         <button type="submit" class="btn btn-primary w-100">Modificar</button>
+                        </div>
                     </form>
                 </div>
                 <div class="text-center px-4 py-3 w-100">

@@ -1,5 +1,5 @@
 <?php
-include_once "conexion.php";
+include_once "../conexion.php";
 $nombre = $_POST['Nombre'];
 $apellido = $_POST['Apellido'];
 $email = $_POST['Email'];
@@ -10,9 +10,9 @@ $data = $_POST['DataContracteEdu'];
 $permisos = $_POST['PermisosEdu'];
 $IdDepEdu = $_POST['IdDepEdu'];
 
-$query=$mysqli->prepare('INSERT INTO educador (nomEdu, cognomsEdu, MailEdu, PwdEdu, TelfEdu, SalariEdu, DataContracteEdu, PermisosEdu, IdDepEdu) VALUES (?,?,?,?,?,?,?,?)');
+$query=$mysqli->prepare('INSERT INTO educador (nomEdu, cognomsEdu, MailEdu, PwdEdu, TelfEdu, SalariEdu, DataContracteEdu, PermisosEdu, IdDepEdu) VALUES (?,?,?,?,?,?,?,?,?);');
 $query->bind_param('ssssssssi',$nombre, $apellido, $email, $password, $telf, $salario, $data, $permisos, $IdDepEdu);
 $query->execute();
-header('Location:/educador/educador.php');
+header('Location:../index.php');
 
 ?>
