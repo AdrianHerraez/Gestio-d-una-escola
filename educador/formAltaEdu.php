@@ -73,9 +73,6 @@ include '../conexion.php';
                         <button type="submit" class="btn btn-primary w-100">Registrarse</button>
                     </form>
                 </div>
-                <div class="text-center px-4 py-3 w-100">
-                    <p class="mb-0">Â¿Ya tienes una cuenta?</p> <a href="../index.php" class="text-light font-weight-bold text-decoration-none">Inicia sesiÃ³n</a>
-                </div>
             </div>
         </div>
     </div>

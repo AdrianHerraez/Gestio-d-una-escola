@@ -27,15 +27,15 @@
     </ul>
 </div>
 <div class="column">
-    <img class="logo2" src="/Logo.png"/>
+    <img src="img/logo.png"/>
 </div>
 <div class="column">
 <h2>Sobre nosotros:</h2>
     <ul>
-    <li><a href="/Marc" style="text-decoration:none; color:white">Marc Colom�</a></li>
-    <li><a href="/Luca" style="text-decoration:none; color:white">Luca Lusuardi</a></li>
-    <li><a href="/Adri" style="text-decoration:none; color:white">Adri�n Herr�ez</a></li>
-    <li><a href="/Oriol" style="text-decoration:none; color:white">Oriol Larrazabal</a></li>
+    <li>Marc Colom�</li>
+    <li>Luca Lusuardi</li>
+    <li>Adri�n Herr�ez</li>
+    <li>Oriol Larrazabal</li>
     </ul>
 
 </div>

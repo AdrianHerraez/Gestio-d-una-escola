@@ -67,7 +67,6 @@
                         <li><a class="dropdown-item" href="#"><?php echo $_SESSION['Mail'] ?></a></li>
                         <li><a class="dropdown-item" href="#"><?php echo $_SESSION['Pwd'] ?></a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar Sesión</a></li>
                     </ul>
                 </li>

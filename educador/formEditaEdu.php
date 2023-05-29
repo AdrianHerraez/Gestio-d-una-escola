@@ -35,11 +35,11 @@
                     <form class="mb-4" method="POST" action="editaEdu.php">
                         <div class="mb-3">
                             <label for="exampleInputContractDate" class="form-label font-weight-bold">ID</label>
-                            <input type="text" class="form-control bg-dark-x border-0" value="<?php echo $educador['IdEdu']?>" readonly>
+                            <input type="text" class="form-control bg-dark-x border-0" value="<?php echo $educador['IdEdu']?>" name="Id" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputName" class="form-label font-weight-bold">Nombre</label>
-                            <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="<?php echo $educador['NomEdu']?>" value="<?php echo $educador['NomEdu']?>" aria-describedby="nameHelp" name="Apellido" required>
+                            <input type="text" class="form-control bg-dark-x border-0" id="exampleInputName" placeholder="<?php echo $educador['NomEdu']?>" value="<?php echo $educador['NomEdu']?>" aria-describedby="nameHelp" name="Nombre" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputName" class="form-label font-weight-bold">Apellido</label>
@@ -47,37 +47,30 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail" class="form-label font-weight-bold">Email</label>
-                            <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail" placeholder="Ingresa tu email" value="<?php echo $educador['IdEdu']?>" aria-describedby="emailHelp" name="Email" required>
+                            <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail" placeholder="<?php echo $educador['MailEdu']?>" value="<?php echo $educador['MailEdu']?>" aria-describedby="emailHelp" name="Email" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword" class="form-label font-weight-bold">Contraseña</label>
-                            <input type="password" class="form-control bg-dark-x border-0" placeholder="Ingresa tu contraseña" value="<?php echo $educador['IdEdu']?>" id="exampleInputPassword" name="Password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputConfirmPassword" class="form-label font-weight-bold">Confirmar Contraseña</label>
-                            <input type="password" class="form-control bg-dark-x border-0" placeholder="Confirmar tu contraseña" value="<?php echo $educador['IdEdu']?>" id="exampleInputConfirmPassword" name="ConfirmPassword" required>
+                            <input type="password" class="form-control bg-dark-x border-0" placeholder="<?php echo $educador['PwdEdu']?>" value="<?php echo $educador['PwdEdu']?>" id="exampleInputPassword" name="Password" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPhone" class="form-label font-weight-bold">Teléfono</label>
-                            <input type="tel" class="form-control bg-dark-x border-0" placeholder="Ingresa tu teléfono" value="<?php echo $educador['IdEdu']?>" id="exampleInputPhone" name="TelfEdu" required>
+                            <input type="tel" class="form-control bg-dark-x border-0" placeholder="<?php echo $educador['TelfEdu']?>" value="<?php echo $educador['TelfEdu']?>" id="exampleInputPhone" name="TelfEdu" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputSalary" class="form-label font-weight-bold">Salario</label>
-                            <input type="text" class="form-control bg-dark-x border-0" placeholder="Ingresa tu salario" value="<?php echo $educador['IdEdu']?>" id="exampleInputSalary" name="SalariEdu" required>
+                            <input type="text" class="form-control bg-dark-x border-0" placeholder="<?php echo $educador['SalariEdu']?>" value="<?php echo $educador['SalariEdu']?>" id="exampleInputSalary" name="SalariEdu" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputContractDate" class="form-label font-weight-bold">Fecha de Contrato</label>
-                            <input type="date" class="form-control bg-dark-x border-0" id="exampleInputContractDate" value="<?php echo $educador['IdEdu']?>" name="DataContracteEdu" required>
+                            <input type="date" class="form-control bg-dark-x border-0" id="exampleInputContractDate" placeholder="<?php echo $educador['DataContracteEdu']?>" value="<?php echo $educador['DataContracteEdu']?>" name="DataContracteEdu" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputDepartment" class="form-label font-weight-bold">ID de Departamento</label>
-                            <input type="number" class="form-control bg-dark-x border-0" placeholder="Ingresa el ID de departamento" value="<?php echo $educador['IdEdu']?>" id="exampleInputDepartment" name="IdDepEdu" required>
+                            <input type="number" class="form-control bg-dark-x border-0" placeholder="<?php echo $educador['IdDepEdu']?>" value="<?php echo $educador['IdDepEdu']?>" id="exampleInputDepartment" name="IdDepEdu" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Modificar</button>
                     </form>
-                </div>
-                <div class="text-center px-4 py-3 w-100">
-                    <p class="mb-0">¿Ya tienes una cuenta?</p> <a href="/index.php" class="text-light font-weight-bold text-decoration-none">Inicia sesión</a>
                 </div>
             </div>
         </div>

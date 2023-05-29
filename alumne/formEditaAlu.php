@@ -79,9 +79,6 @@ $alumne = $res->fetch_assoc();
                         </div>
                     </form>
                 </div>
-                <div class="text-center px-4 py-3 w-100">
-                    <p class="mb-0">¿Ya tienes una cuenta?</p> <a href="/index.php" class="text-light font-weight-bold text-decoration-none">Inicia sesión</a>
-                </div>
             </div>
         </div>
     </div>
