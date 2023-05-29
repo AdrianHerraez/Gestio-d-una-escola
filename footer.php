@@ -13,6 +13,7 @@
         margin-top:1vw
     }
     img {
+        width: 80%;
         margin-top:1vw
     }
 </style>

@@ -29,106 +29,93 @@ $result = $query->get_result();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="funciones.js"></script>
 	
+    <style>
+        ul {
+            list-style-type: none;
+        }
 
-<style>
-ul{
-list-style-type: none;
-}
+        img {
+            border-radius: 50%;
+            height: 405px;
+            background-color: grey;
+            width: 405px;
+            object-fit: cover;
+        }
 
-img{
-border-radius: 50%;
-height: 405px;
-background-color: grey;
-width: 405px;
-object-fit: cover;
-}
+        .contenedor {
+            background-color: #2f6997;
+            color: white;
+            margin-left: 30%;
+            margin-right: 30%;
+            padding: 1%;
+            margin-top: 1%;
+        }
 
-.contenedor{
-background-color: #2f6997;
-color: white;
-margin-left:30%;
-margin-right:30%;
-padding: 1%;
-margin-top:1%;
-
-}
-h1{
-margin-bottom:0;
-}
-@media only screen and (max-width: 900px) {
-  ul {
-    padding:0;
-}
-  img {
-width: 370px;
-}
-  button {
-    visibility: hidden;
-}
-}
-	</style>
-
+        h1 {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
+
 <body style="margin: 0px;">
 
-<nav class="navbar navbar-dark navbar-expand-lg sticky-top bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="../index.php">School Tracker +</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="navbar-nav ms-auto justify-content-end">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Nombre</a></li>
-                    <li><a class="dropdown-item" href="#">Mail</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
-                    <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div style="text-align: center;">
-    <div>
-        <?php
-        while ($row = $result->fetch_assoc()) {
-            echo "<h1>" . $row['NomAlu'] . "</h1>";
-            echo "<h5>" . $row['CognomsAlu'] . "</h5>";
-            echo "<img src='../img/virtuoso.jpg'>";
-            echo "<div class='contenedor'>";
+    <nav class="navbar navbar-dark navbar-expand-lg sticky-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.php">School Tracker +</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav ms-auto justify-content-end">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Nombre</a></li>
+                        <li><a class="dropdown-item" href="#">Mail</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
+                        <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="text-align: center;">
+        <div>
+            <?php
+            while ($row = $result->fetch_assoc()) {
+                echo "<h1>" . $row['NomAlu'] . "</h1>";
+                echo "<h5>" . $row['CognomsAlu'] . "</h5>";
+                echo '<img src="' . $row['ImatgeAlu'] . '" alt="Imagen">';
+                echo "<div class='contenedor'>";
                 echo "<ul class='orden'>";
-                    echo "<li><h3>Información sobre " . $row['NomAlu'] . "</h3></li>";
-                    echo "<li> Telefono: " . $row['TelfAlu'] . "</li>";
-                    echo "<li> Direccion: " . $row['DireccioAlu'] . "</li>";
-                    echo "<li> CP: " . $row['CPAlu'] . "</li>";
-                    echo "<li>telefono</li>";
+                echo "<li><h3>Información sobre " . $row['NomAlu'] . "</h3></li>";
+                echo "<li> Telefono: " . $row['TelfAlu'] . "</li>";
+                echo "<li> Direccion: " . $row['DireccioAlu'] . "</li>";
+                echo "<li> CP: " . $row['CPAlu'] . "</li>";
                 echo "</ul>";
-            echo "</div>";
-            break;
-        }
-        ?>
+                echo "</div>";
+            }
+            ?>
+        </div>
+
+        <div class="container">
+            <h1>Asignaturas - Profesor</h1>
+            <ul class="list-group">
+                <?php
+                $query = $mysqli->prepare('SELECT * FROM nota WHERE MatriculaAluNota = ?');
+                $query->bind_param('i', $_GET["id"]);
+                $query->execute();
+                $result = $query->get_result();
+                ?>
+
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                    <li class="list-group-item"><strong><?php echo "Asignatura: " . $row['DescripcioNota']; ?></strong></li>
+                    <li class="list-group-item"><?php echo "Nota: " . $row['NumNota']; ?></li>
+                <?php endwhile; ?>
+
+            </ul>
+        </div>
     </div>
-
-    <div>
-        <h1>Asignaturas - Profesor</h1>
-        <ul class="list-group">
-        <?php
-        $query = $mysqli->prepare('SELECT * FROM nota WHERE MatriculaAluNota = ?');
-        $query->bind_param('i', $_GET["id"]);
-        $query->execute();
-        $result = $query->get_result();
-        ?>
-
-        <?php while ($row = $result->fetch_assoc()) : ?>
-            <li class="list-group-item"><strong><?php echo "Asignatura: " . $row['DescripcioNota']; ?></strong></li>
-            <li class="list-group-item"><?php echo "Nota: " . $row['NumNota']; ?></li>
-        <?php endwhile; ?>
-
-    </ul>
-    </div>
-</div>
 </body>
+
 </html>
